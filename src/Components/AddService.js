@@ -2,6 +2,7 @@ import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 const AddService = () => {
+  // add service
   const handleAddService = (event) => {
     event.preventDefault();
     const name = event.target.name.value;
@@ -20,8 +21,11 @@ const AddService = () => {
         console.log("Success", data);
         toast("successfully adding new Service", data);
         event.target.reset();
+        // for auto reload
+        window.location.reload(true);
       });
   };
+  
   return (
     <div>
       <h2> Test Crud</h2>
