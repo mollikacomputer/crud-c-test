@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import AddService from './Components/AddService';
-
+import { HiTrash, HiOutlinePencilAlt } from "react-icons/hi";
 function App() {
    const [services, setServices] = useState([]);
    useEffect(()=>{
@@ -33,10 +33,13 @@ function App() {
     <div className="App">
      <h2> Available Service {services.length} </h2>
       <AddService/>
+    
       <ul>
         {
           services.map( service => <li key={service._id} > Name : {service.name} description : {service.desc}
-          <button onClick={()=> handleDeleteService(service._id)} > X </button>
+          {/* <button onClick={()=> handleDeleteService(service._id)} > <HiTrash /> </button> */}
+          <HiOutlinePencilAlt />
+          <HiTrash onClick={()=> handleDeleteService(service._id)} />
            </li>)
         }
       </ul>
